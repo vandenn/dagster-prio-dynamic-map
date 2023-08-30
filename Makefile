@@ -10,10 +10,11 @@ setup: requirements-dev.txt
 	venv/bin/pip-sync requirements-dev.txt
 	venv/bin/pre-commit install
 	mkdir -p ${PWD}/dagster_home
+	touch ${PWD}/dagster_home/dagster.yaml
 
 lint:
 	venv/bin/pre-commit run --all-files
 
 run: dagster_home
 	export DAGSTER_HOME=${PWD}/dagster_home && \
-	venv/bin/dagit -p 3000
+	venv/bin/dagster-webserver -h 0.0.0.0 -p 3000

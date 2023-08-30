@@ -26,8 +26,6 @@ coloredlogs==14.0
     # via dagster
 croniter==1.4.1
     # via dagster
-dagit==1.4.10
-    # via -r requirements.in
 dagster==1.4.10
     # via
     #   -r requirements.in
@@ -36,7 +34,7 @@ dagster==1.4.10
 dagster-graphql==1.4.10
     # via dagster-webserver
 dagster-webserver==1.4.10
-    # via dagit
+    # via -r requirements.in
 distlib==0.3.7
     # via virtualenv
 docstring-parser==0.15
