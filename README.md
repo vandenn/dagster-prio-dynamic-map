@@ -13,7 +13,7 @@ A reference repository for implementing parallel ops in Dagster that support seq
 
 Make sure you have Python 3.11 installed in your system, then run:
 ```bash
-make venv
+make init
 make setup
 make run
 ```
