@@ -7,4 +7,5 @@ from src import ops
 def non_dynamic_job():
     pokemon_list = ops.get_all_data()
     pokemon_list = ops.expensive_transformation_1(pokemon_list)
+    pokemon_list = ops.expensive_transformation_2(pokemon_list)
     ops.pseudo_load_to_db(pokemon_list)
