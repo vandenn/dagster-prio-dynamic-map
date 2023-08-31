@@ -11,7 +11,15 @@ A reference repository for implementing parallel ops in Dagster that support seq
 
 # Setup
 
-Make sure you have Python 3.11 installed in your system, then run:
+## Data
+
+Data was downloaded from "The Complete Pokemon Dataset" in Kaggle:
+https://www.kaggle.com/datasets/rounakbanik/pokemon
+The CSV has also been provided in the `./data` directory.
+
+## Installation
+
+Make sure you have Python 3.11 installed in your system, and that you have the Pokemon CSV in `./data`, then run:
 ```bash
 make init
 make setup
