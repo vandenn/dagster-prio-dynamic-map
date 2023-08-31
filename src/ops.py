@@ -2,7 +2,7 @@ import csv
 import time
 import uuid
 
-from dagster import op
+from dagster import DynamicOut, DynamicOutput, op
 
 
 @op
@@ -12,6 +12,24 @@ def get_all_data(context):
         pokemon = list(data_reader)
         context.log.info(f"{len(pokemon)} records retrieved.")
     return pokemon
+
+
+@op(out=DynamicOut())
+def dynamic_get_all_data(context):
+    with open("./data/pokemon.csv", "r") as data_file:
+        data_reader = csv.DictReader(data_file)
+        pokemon = list(data_reader)
+
+        # Simulate batch retrieval of data from an API
+        batch_size = 100
+        total = len(pokemon)
+        for offset in range(0, total, batch_size):
+            context.log.info(
+                f"{min(offset + batch_size, total)}/{total} records retrieved."
+            )
+            yield DynamicOutput(
+                pokemon[offset : offset + batch_size], mapping_key=f"{offset}"
+            )
 
 
 @op
