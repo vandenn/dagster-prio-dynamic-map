@@ -4,7 +4,7 @@ from src import logic
 
 
 @op
-def non_dynamic_extract(context):
+def static_extract(context):
     return logic.get_all_data(context)
 
 

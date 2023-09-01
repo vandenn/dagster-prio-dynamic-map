@@ -4,8 +4,8 @@ from src import ops_no_prio, ops_with_prio
 
 
 @job
-def non_dynamic_job():
-    pokemon_list = ops_no_prio.non_dynamic_extract()
+def static_job():
+    pokemon_list = ops_no_prio.static_extract()
     pokemon_list = ops_no_prio.non_prio_transform_1(pokemon_list)
     pokemon_list = ops_no_prio.non_prio_transform_2(pokemon_list)
     ops_no_prio.non_prio_load(pokemon_list)
